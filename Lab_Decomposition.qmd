@@ -1,0 +1,59 @@
+---
+title: "Lab1: Decomposition"
+author: "Dakouri Kobri"
+format: pdf
+editor: visual
+---
+
+## 1 Basic R Computation
+
+```{r}
+1 + 1 
+```
+
+```{r}
+a <- 5
+b <- 2
+```
+
+```{r}
+a + b # addition
+```
+
+```{r}
+a - b # subtruction
+```
+
+```{r}
+a * b # multiplication
+```
+
+```{r}
+a / b # division
+```
+
+```{r}
+total <- a + b
+print(total)
+```
+
+```{r}
+sum(a, b)
+```
+
+```{r}
+total == sum(a, b)
+```
+
+```{r}
+total == a - b
+```
+
+```{r}
+c(5, 8)
+```
+
+```{r}
+all <- c(a, b, total)
+print(all)
+```

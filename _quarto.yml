@@ -1,0 +1,7 @@
+project:
+  type: default
+  output-dir: _rendered   # keep rendered HTML/PDF here (and git-ignore it)
+
+execute:
+  cache: true
+  freeze: auto            # only re-run changed docs
