@@ -174,3 +174,32 @@ cma <- cmav(y.trn, outplot = 1)
 # Print the CMA calculated values
 print(cma)
 ```
+
+```{r}
+# Explore seasonality
+seasplot(y.trn)
+```
+
+```{r}
+# Alternative visulisations with seasplot()
+# Boxplots of each month's values
+seasplot(y.trn, outplot = 2)
+```
+
+```{r}
+# Alternative visulisations with seasplot()
+# The average (red) value for each month with a series of each month across years (blue) 
+seasplot(y.trn, outplot = 3)
+```
+
+```{r}
+# Alternative visulisations with seasplot()
+# `Connected' boxplot across months.
+seasplot(y.trn,outplot=4) 
+```
+
+```{r}
+# Decomposing with decomp()
+# NB: decomp() always assume both components, trend & seasinality are present, while in decomposition, wes hould remove either of the components, if it's present, to avoid noise.
+dc <- decomp(y.trn, outplot = 1)
+```
