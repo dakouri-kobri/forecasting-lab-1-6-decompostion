@@ -57,3 +57,35 @@ c(5, 8)
 all <- c(a, b, total)
 print(all)
 ```
+
+## 2 Loading packages into R
+
+```{r}
+# Install packages
+install.packages('forecast')
+install.packages('tsutils')
+```
+
+```{r}
+# Load packages
+library(forecast)
+library(tsutils)
+```
+
+```{r}
+# Get package documentation
+?'forecast-package'
+```
+
+## 3 Loading data into R
+
+```{r}
+# Load and print data
+Y <- read.csv("./workshop1R.csv") 
+print(Y)
+```
+
+```{r}
+# Get columns names
+colnames(Y)
+```
