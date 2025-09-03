@@ -114,3 +114,51 @@ print(y)
 # Plot the series
 plot(y)
 ```
+
+## 4 Constructing estimation and hold-out sets
+
+```{r}
+# Set the last year's data as a hold-out/test set
+y.tst <- tail(y, 12)
+print(y.tst)
+```
+
+```{r}
+# Estimation (fitting, training) set
+y.trn <- head(y, 48)
+print(y.trn)
+```
+
+Observation on splitting methods:
+
+```{r}
+yy <- y[1:48]
+print(yy)
+```
+
+```{r}
+class(y) # Times series object
+```
+
+```{r}
+class(yy) # Vector of numeric values
+```
+
+```{r}
+# Carry the properties of y to yy
+yy <- ts(yy, frequency = frequency(y), start = start(y))
+print(yy)
+```
+
+```{r}
+class(yy) # yy is now a time series object
+```
+
+```{r}
+# Compare yy to the estimation set
+yy == y.trn
+```
+
+```{r}
+all(yy == y.trn) # provides overall logical comparison result
+```
