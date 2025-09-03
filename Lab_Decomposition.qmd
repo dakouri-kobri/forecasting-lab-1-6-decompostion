@@ -89,3 +89,28 @@ print(Y)
 # Get columns names
 colnames(Y)
 ```
+
+Example of a time series modeling:
+
+```{r}
+# Store series Level_A in y
+y <- Y[, 1]
+print(y)
+```
+
+```{r}
+# Turn vector y into a series
+y <- ts(y, frequency = 12)
+print(y)
+```
+
+```{r}
+# Suppose the data ends in November
+y <- ts(y, frequency = 12, end = c(2018, 11))
+print(y)
+```
+
+```{r}
+# Plot the series
+plot(y)
+```
