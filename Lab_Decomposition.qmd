@@ -162,3 +162,15 @@ yy == y.trn
 ```{r}
 all(yy == y.trn) # provides overall logical comparison result
 ```
+
+## 5 Exploring a time series
+
+```{r}
+# Explore trend: Calculate and plot centered moving average
+cma <- cmav(y.trn, outplot = 1)
+```
+
+```{r}
+# Print the CMA calculated values
+print(cma)
+```
