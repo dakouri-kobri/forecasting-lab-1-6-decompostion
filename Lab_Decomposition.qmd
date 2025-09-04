@@ -223,3 +223,16 @@ print(y_B)
 # Plot y_B
 plot(y_B)
 ```
+
+```{r}
+# Construct estimation and hold-out sets
+
+print('Hold-out set:')
+y_B.tst <- tail(y_B, 12) # Hold-out set
+print(y_B.tst)
+print('')
+
+print('Estimation set:')
+y_B.trn <- head(y_B, 48) # Estimation set
+print(y_B.trn)
+```
