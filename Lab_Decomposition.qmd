@@ -527,6 +527,7 @@ seasplot(y_sA.trn,outplot=4)
 # Decomposing with decomp()
 dc_sA <- decomp(y_sA.trn, outplot = 1)
 ```
+
 #### Season_B:
 
 ```{r}
@@ -590,6 +591,7 @@ seasplot(y_sB.trn,outplot=4)
 # Decomposing with decomp()
 dc_sB <- decomp(y_sB.trn, outplot = 1)
 ```
+
 #### TrendSeason:
 
 ```{r}
@@ -653,3 +655,5 @@ seasplot(y_TS.trn,outplot=4)
 # Decomposing with decomp()
 dc_TS <- decomp(y_TS.trn, outplot = 1)
 ```
+
+### 6.2 
