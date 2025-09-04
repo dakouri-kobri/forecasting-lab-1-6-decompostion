@@ -590,3 +590,66 @@ seasplot(y_sB.trn,outplot=4)
 # Decomposing with decomp()
 dc_sB <- decomp(y_sB.trn, outplot = 1)
 ```
+#### TrendSeason:
+
+```{r}
+# Select `TrendSeason`
+y_TS <- Y[, 8]
+
+# Convert to a time series, assuming the data ends in November
+y_TS <- ts(y_TS, frequency = 12, end = c(2018, 11))
+print(y_TS)
+```
+
+```{r}
+# Plot y_TS
+plot(y_TS)
+```
+
+```{r}
+# Construct estimation and hold-out sets
+
+print('Hold-out set:')
+y_TS.tst <- tail(y_TS, 12) # Hold-out set
+print(y_TS.tst)
+print('')
+
+print('Estimation set:')
+y_TS.trn <- head(y_TS, 48) # Estimation set
+print(y_TS.trn)
+```
+
+```{r}
+# Explore trend: Calculate and plot centered moving average
+cma_TS <- cmav(y_TS.trn, outplot = 1)
+```
+
+```{r}
+# Print the CMA calculated values
+print(cma_TS)
+```
+
+```{r}
+# Explore seasonality
+seasplot(y_TS.trn)
+```
+
+```{r}
+# Explore seasonality through boxplots of each month's values
+seasplot(y_TS.trn, outplot = 2)
+```
+
+```{r}
+# Explore seasonality through subseries plotting
+seasplot(y_TS.trn, outplot = 3)
+```
+
+```{r}
+# Explore seasonality through `Connected' boxplot across months.
+seasplot(y_TS.trn,outplot=4) 
+```
+
+```{r}
+# Decomposing with decomp()
+dc_TS <- decomp(y_TS.trn, outplot = 1)
+```
