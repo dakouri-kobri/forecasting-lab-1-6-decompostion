@@ -689,3 +689,38 @@ print('Estimation set:')
 y_air.trn <- head(y_air, 48) # Estimation set
 print(y_air.trn)
 ```
+
+```{r}
+# Explore trend: Calculate and plot centered moving average
+cma_air <- cmav(y_air.trn, outplot = 1)
+```
+
+```{r}
+# Print the CMA calculated values
+print(cma_air)
+```
+
+```{r}
+# Explore seasonality
+seasplot(y_air.trn)
+```
+
+```{r}
+# Explore seasonality through boxplots of each month's values
+seasplot(y_air.trn, outplot = 2)
+```
+
+```{r}
+# Explore seasonality through subseries plotting
+seasplot(y_air.trn, outplot = 3)
+```
+
+```{r}
+# Explore seasonality through `Connected' boxplot across months.
+seasplot(y_air.trn,outplot=4) 
+```
+
+```{r}
+# Decomposing with decomp()
+dc_air <- decomp(y_air.trn, outplot = 1)
+```
