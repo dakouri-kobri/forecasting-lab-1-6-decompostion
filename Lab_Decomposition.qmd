@@ -236,3 +236,38 @@ print('Estimation set:')
 y_B.trn <- head(y_B, 48) # Estimation set
 print(y_B.trn)
 ```
+
+```{r}
+# Explore trend: Calculate and plot centered moving average
+cma_B <- cmav(y_B.trn, outplot = 1)
+```
+
+```{r}
+# Print the CMA calculated values
+print(cma_B)
+```
+
+```{r}
+# Explore seasonality
+seasplot(y_B.trn)
+```
+
+```{r}
+# Explore seasonality through boxplots of each month's values
+seasplot(y_B.trn, outplot = 2)
+```
+
+```{r}
+# Explore seasonality through subseries plotting
+seasplot(y_B.trn, outplot = 3)
+```
+
+```{r}
+# Explore seasonality through `Connected' boxplot across months.
+seasplot(y_B.trn,outplot=4) 
+```
+
+```{r}
+# Decomposing with decomp()
+dc_B <- decomp(y_B.trn, outplot = 1)
+```
