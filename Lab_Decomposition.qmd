@@ -657,3 +657,22 @@ dc_TS <- decomp(y_TS.trn, outplot = 1)
 ```
 
 ### 6.2 
+
+### 6.3 Decomposition of AirPassenger Data
+
+```{r}
+# Load data
+y_air <- AirPassengers
+colum
+print(y_air)
+```
+
+```{r}
+# Check type of y_air
+class(y_air)
+```
+
+```{r}
+# Plot y_air
+plot(y_air)
+```
