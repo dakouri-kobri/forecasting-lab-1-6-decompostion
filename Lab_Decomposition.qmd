@@ -656,7 +656,7 @@ seasplot(y_TS.trn,outplot=4)
 dc_TS <- decomp(y_TS.trn, outplot = 1)
 ```
 
-### 6.2 
+### 6.2
 
 ### 6.3 Decomposition of AirPassenger Data
 
@@ -675,4 +675,17 @@ class(y_air)
 ```{r}
 # Plot y_air
 plot(y_air)
+```
+
+```{r}
+# Construct estimation and hold-out sets
+
+print('Hold-out set:')
+y_air.tst <- tail(y_air, 12) # Hold-out set
+print(y_air.tst)
+print('')
+
+print('Estimation set:')
+y_air.trn <- head(y_air, 48) # Estimation set
+print(y_air.trn)
 ```
