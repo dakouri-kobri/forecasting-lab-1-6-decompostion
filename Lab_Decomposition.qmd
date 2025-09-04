@@ -399,6 +399,7 @@ seasplot(y_tA.trn,outplot=4)
 # Decomposing with decomp()
 dc_tA <- decomp(y_tA.trn, outplot = 1)
 ```
+
 #### Trend_B:
 
 ```{r}
@@ -462,6 +463,7 @@ seasplot(y_tB.trn,outplot=4)
 # Decomposing with decomp()
 dc_tB <- decomp(y_tB.trn, outplot = 1)
 ```
+
 #### Season_A:
 
 ```{r}
@@ -524,4 +526,67 @@ seasplot(y_sA.trn,outplot=4)
 ```{r}
 # Decomposing with decomp()
 dc_sA <- decomp(y_sA.trn, outplot = 1)
+```
+#### Season_B:
+
+```{r}
+# Select `Season_B`
+y_sB <- Y[, 7]
+
+# Convert to a time series, assuming the data ends in November
+y_sB <- ts(y_sB, frequency = 12, end = c(2018, 11))
+print(y_sB)
+```
+
+```{r}
+# Plot y_sB
+plot(y_sB)
+```
+
+```{r}
+# Construct estimation and hold-out sets
+
+print('Hold-out set:')
+y_sB.tst <- tail(y_sB, 12) # Hold-out set
+print(y_sB.tst)
+print('')
+
+print('Estimation set:')
+y_sB.trn <- head(y_sB, 48) # Estimation set
+print(y_sB.trn)
+```
+
+```{r}
+# Explore trend: Calculate and plot centered moving average
+cma_sB <- cmav(y_sB.trn, outplot = 1)
+```
+
+```{r}
+# Print the CMA calculated values
+print(cma_sB)
+```
+
+```{r}
+# Explore seasonality
+seasplot(y_sB.trn)
+```
+
+```{r}
+# Explore seasonality through boxplots of each month's values
+seasplot(y_sB.trn, outplot = 2)
+```
+
+```{r}
+# Explore seasonality through subseries plotting
+seasplot(y_sB.trn, outplot = 3)
+```
+
+```{r}
+# Explore seasonality through `Connected' boxplot across months.
+seasplot(y_sB.trn,outplot=4) 
+```
+
+```{r}
+# Decomposing with decomp()
+dc_sB <- decomp(y_sB.trn, outplot = 1)
 ```
