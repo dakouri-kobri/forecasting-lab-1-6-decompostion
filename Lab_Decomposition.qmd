@@ -271,3 +271,67 @@ seasplot(y_B.trn,outplot=4)
 # Decomposing with decomp()
 dc_B <- decomp(y_B.trn, outplot = 1)
 ```
+
+#### LevelShift:
+
+```{r}
+# Select `LevelShift`
+y_shift <- Y[,3]
+
+# Convert to a time series, assuming the data ends in November
+y_shift <- ts(y_shift, frequency = 12, end = c(2018, 11))
+print(y_shift)
+```
+
+```{r}
+# Plot y_shift
+plot(y_shift)
+```
+
+```{r}
+# Construct estimation and hold-out sets
+
+print('Hold-out set:')
+y_shift.tst <- tail(y_shift, 12) # Hold-out set
+print(y_shift.tst)
+print('')
+
+print('Estimation set:')
+y_shift.trn <- head(y_shift, 48) # Estimation set
+print(y_shift.trn)
+```
+
+```{r}
+# Explore trend: Calculate and plot centered moving average
+cma_shift <- cmav(y_shift.trn, outplot = 1)
+```
+
+```{r}
+# Print the CMA calculated values
+print(cma_shift)
+```
+
+```{r}
+# Explore seasonality
+seasplot(y_shift.trn)
+```
+
+```{r}
+# Explore seasonality through boxplots of each month's values
+seasplot(y_shift.trn, outplot = 2)
+```
+
+```{r}
+# Explore seasonality through subseries plotting
+seasplot(y_shift.trn, outplot = 3)
+```
+
+```{r}
+# Explore seasonality through `Connected' boxplot across months.
+seasplot(y_shift.trn,outplot=4) 
+```
+
+```{r}
+# Decomposing with decomp()
+dc_shift <- decomp(y_shift.trn, outplot = 1)
+```
