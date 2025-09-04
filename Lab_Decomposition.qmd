@@ -203,3 +203,23 @@ seasplot(y.trn,outplot=4)
 # NB: decomp() always assume both components, trend & seasinality are present, while in decomposition, wes hould remove either of the components, if it's present, to avoid noise.
 dc <- decomp(y.trn, outplot = 1)
 ```
+
+## 6 Exercises
+
+### 6.1
+
+#### Level_B:
+
+```{r}
+# Select `Level_B`
+y_B <- Y[, 2]
+
+# Convert to a time series, assuming the data ends in November
+y_B <- ts(y_B, frequency = 12, end = c(2018, 11))
+print(y_B)
+```
+
+```{r}
+# Plot y_B
+plot(y_B)
+```
