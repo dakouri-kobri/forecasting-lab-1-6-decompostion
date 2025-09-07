@@ -62,8 +62,8 @@ print(all)
 
 ```{r}
 # Install packages
-install.packages('forecast')
-install.packages('tsutils')
+# install.packages('forecast')
+# install.packages('tsutils')
 ```
 
 ```{r}
@@ -170,6 +170,8 @@ all(yy == y.trn) # provides overall logical comparison result
 cma <- cmav(y.trn, outplot = 1)
 ```
 
+There’s a small rise through 2014–15, easing back and flattening, but there is no sustained monotonic increase or decrease. So, this series is not trended.
+
 ```{r}
 # Print the CMA calculated values
 print(cma)
@@ -179,6 +181,8 @@ print(cma)
 # Explore seasonality
 seasplot(y.trn)
 ```
+
+This series is not seasonal because it doesn't show any consistent month-to-month pattern.
 
 ```{r}
 # Alternative visulisations with seasplot()
@@ -242,6 +246,8 @@ print(y_B.trn)
 cma_B <- cmav(y_B.trn, outplot = 1)
 ```
 
+There is a mild upward trend, specially from the end of 2014, up to the end of the first trimester of 2017, where a small dip can be observed, followed by a plateau.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_B)
@@ -251,6 +257,8 @@ print(cma_B)
 # Explore seasonality
 seasplot(y_B.trn)
 ```
+
+This series is not seasonal because it doesn't show any consistent month-to-month pattern.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
@@ -306,6 +314,8 @@ print(y_shift.trn)
 cma_shift <- cmav(y_shift.trn, outplot = 1)
 ```
 
+There is a strong upward trend, that gradually goes up with a clear level shift at then end of the first quarter of 2016, then stays higher thereafter.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_shift)
@@ -315,6 +325,8 @@ print(cma_shift)
 # Explore seasonality
 seasplot(y_shift.trn)
 ```
+
+This series shows no consistent month-to-month pattern.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
@@ -370,6 +382,8 @@ print(y_tA.trn)
 cma_tA <- cmav(y_tA.trn, outplot = 1)
 ```
 
+A strong downward trend can be seen. This series clearly declines throughout 2014-2017.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_tA)
@@ -379,6 +393,8 @@ print(cma_tA)
 # Explore seasonality
 seasplot(y_tA.trn)
 ```
+
+This series shows no consistent month-to-month pattern.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
@@ -434,6 +450,8 @@ print(y_tB.trn)
 cma_tB <- cmav(y_tB.trn, outplot = 1)
 ```
 
+A strong upward trend can be seen. This series strongly rises across 2014-2017.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_tB)
@@ -443,6 +461,8 @@ print(cma_tB)
 # Explore seasonality
 seasplot(y_tB.trn)
 ```
+
+This series shows no consistent month pattern.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
@@ -498,6 +518,8 @@ print(y_sA.trn)
 cma_sA <- cmav(y_sA.trn, outplot = 1)
 ```
 
+This series show a very mild trend that strengthened in 2017.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_sA)
@@ -507,6 +529,8 @@ print(cma_sA)
 # Explore seasonality
 seasplot(y_sA.trn)
 ```
+
+This series shows a clear month pattern with the highest peak in the middle of the year.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
@@ -562,6 +586,8 @@ print(y_sB.trn)
 cma_sB <- cmav(y_sB.trn, outplot = 1)
 ```
 
+There is no clear trend in this series.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_sB)
@@ -571,6 +597,8 @@ print(cma_sB)
 # Explore seasonality
 seasplot(y_sB.trn)
 ```
+
+This series is definitely seasonal with two high peaks, respectively around May and September.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
@@ -626,6 +654,8 @@ print(y_TS.trn)
 cma_TS <- cmav(y_TS.trn, outplot = 1)
 ```
 
+There is a steady upward trend in this series.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_TS)
@@ -635,6 +665,8 @@ print(cma_TS)
 # Explore seasonality
 seasplot(y_TS.trn)
 ```
+
+This series shows a clear month pattern with a peak around July and through in October.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
@@ -656,14 +688,18 @@ seasplot(y_TS.trn,outplot=4)
 dc_TS <- decomp(y_TS.trn, outplot = 1)
 ```
 
-### 6.2
+The underlying plots for each of the series correspond their corresponding models; series with seasonality shows that component while series with trend exihibit that feature. The series that had the component was plotting accordingly.
+
+### 6.2 Function decomp() & trend and seasonality removal
+
+The function decomp() doesn't know when to remove trend and seasonality. It seems to flatten the plot when there is no trend nor seasonality.
 
 ### 6.3 Decomposition of AirPassenger Data
 
 ```{r}
 # Load data
 y_air <- AirPassengers
-colum
+
 print(y_air)
 ```
 
@@ -695,6 +731,8 @@ print(y_air.trn)
 cma_air <- cmav(y_air.trn, outplot = 1)
 ```
 
+This series shows a clear steady upward trend.
+
 ```{r}
 # Print the CMA calculated values
 print(cma_air)
@@ -704,6 +742,8 @@ print(cma_air)
 # Explore seasonality
 seasplot(y_air.trn)
 ```
+
+This series shows a consistent month pattern with highest peak around July and August.
 
 ```{r}
 # Explore seasonality through boxplots of each month's values
